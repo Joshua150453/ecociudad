@@ -27,7 +27,7 @@
                 <td colspan="2">
                     <table>
                         <tr><td>ASIGNATURA:</td><td>Programción para Dispositivos Moviles</td></tr>
-                        <tr><td>TÍTULO DEL TRABAJO:</td><td> Examen Parcial</td></tr>
+                        <tr><td>TÍTULO DEL TRABAJO:</td><td> Examen Final</td></tr>
                         <tr>
                             <td>NÚMERO DEL TRABAJO:</td><td>Segundo Avance</td>
                             <td>AÑO:</td><td>2025</td>
