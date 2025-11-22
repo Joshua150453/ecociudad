@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <!-- Pantalla principal -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.ecociudad.ui.home.HomeFragment"
+        android:label="EcoCiudad">
+
+        <action
+            android:id="@+id/action_home_to_reportes"
+            app:destination="@id/reportesFragment" />
+
+        <action
+            android:id="@+id/action_home_to_reciclaje"
+            app:destination="@id/centrosReciclajeFragment" />
+
+        <action
+            android:id="@+id/action_home_to_consejos"
+            app:destination="@id/consejosFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reportesFragment"
+        android:name="com.example.ecociudad.ui.reportes.ReportesFragment"
+        android:label="Reportes de Puntos Sucios">
+
+        <action
+            android:id="@+id/action_reportes_to_nuevo"
+            app:destination="@id/nuevoReporteFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nuevoReporteFragment"
+        android:name="com.example.ecociudad.ui.reportes.NuevoReporteFragment"
+        android:label="Nuevo Reporte"/>
+
+    <fragment
+        android:id="@+id/centrosReciclajeFragment"
+        android:name="com.example.ecociudad.ui.reciclaje.CentrosReciclajeFragment"
+        android:label="Centros de Reciclaje"/>
+
+    <fragment
+        android:id="@+id/consejosFragment"
+        android:name="com.example.ecociudad.ui.consejos.ConsejosFragment"
+        android:label="Consejos Ecológicos"/>
+
+</navigation>
