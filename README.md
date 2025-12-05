@@ -29,7 +29,7 @@
                         <tr><td>ASIGNATURA:</td><td>Programción para Dispositivos Moviles</td></tr>
                         <tr><td>TÍTULO DEL TRABAJO:</td><td> Examen Final</td></tr>
                         <tr>
-                            <td>NÚMERO DEL TRABAJO:</td><td>Segundo Avance</td>
+                            <td>NÚMERO DEL TRABAJO:</td><td>Entrega Final</td>
                             <td>AÑO:</td><td>2025</td>
                             <td>NRO. SEMESTRE:</td><td>VI</td>
                         </tr>
@@ -228,12 +228,152 @@ Para control personalizado del AppBar.
 ### ✔ XML
 Definición de interfaces, layouts y navegación.
 
-## 7. Conclusiones
-El proyecto EcoCiudad ya cuenta con una estructura sólida y profesional:
-  
-  - Navegación completa entre pantallas operativa
-  - Fragmentos organizados y conectados correctamente
-  - Toolbar personalizado funcionando sin errores visuales
-  - Acciones iniciales implementadas mediante mensajes interactivos
-  - Base lista para expansión en fases posteriores
-  - Aunque ciertas funciones avanzadas como guardar reportes, usar cámara o mostrar datos reales aún están en construcción, la base del proyecto está correctamente establecida y lista para escalamiento.
+## 7. Resumen General de Nuevas Funcionalidades para la entrega final
+Las nuevas incorporaciones del proyecto pueden clasificarse en cuatro componentes principales:
+
+### Mejoras en el nav_graph.xml
+- Se añadieron transiciones animadas entre pantallas.
+- Se declararon acciones explícitas para cada navegación desde el Home.
+- Se agregaron labels descriptivos para cada fragment.
+- Se optimizó la estructura del grafo de navegación.
+
+### Creación de dos nuevas pantallas informativas
+- CentrosReciclajeFragment
+- ConsejosFragment
+
+### Carga inicial de contenido estático
+- Lista de centros de reciclaje cercanos.
+- Consejos prácticos de ecología y vida sostenible.
+
+### Adaptaciones menores en MainActivity
+- Integración del NavController con la Toolbar.
+- Gestión del botón de navegación hacia atrás.
+- Soporte para títulos dinámicos por fragment.
+
+## 8. Detalle por Componente
+### 8.1 Modificaciones de Navegación (nav_graph.xml)
+Se actualizó el archivo:
+### Ruta:
+- app/src/main/res/navigation/nav_graph.xml
+
+Los cambios realizados incluyen:
+
+### a) Definición de acciones desde Home
+Ahora el fragmento inicial (HomeFragment) contiene tres acciones:
+
+- action_home_to_reportes → hacia la lista de reportes
+- action_home_to_reciclaje → hacia centros de reciclaje
+- action_home_to_consejos → hacia consejos ecológicos
+
+Esto permite una navegación clara desde la pantalla principal.
+
+### b) Inclusión de animaciones
+Se incluyeron efectos de transición:
+
+- slide → para reportes
+- fade → para secciones informativas
+
+Esto mejora la UX y hace la navegación más fluida.
+
+### c) Labels descriptivos
+Cada fragmento tiene su android:label, lo que permite:
+
+- Mostrar el título correcto en la Toolbar
+- Mejor accesibilidad
+. Identificación clara de cada pantalla
+
+### d) Estructura lógica del grafo
+El grafo mantiene:
+
+- HomeFragment como destino inicial
+- Navegación unidireccional clara
+- Fragmentos desacoplados y reutilizables
+
+No se implementó Safe Args aún, ya que no se pasan datos entre pantallas en esta fase.
+
+### 8.2 Nuevas Pantallas
+Se incorporaron dos fragmentos nuevos al proyecto:
+
+#### a) CentrosReciclajeFragment
+#### Objetivo:
+Mostrar información útil sobre centros de reciclaje cercanos, con dirección y tipo de residuos que reciben.
+
+#### Motivación:
+El usuario puede integrar la plataforma con acciones reales en su comunidad.
+#### Entidad mostrada:
+Un listado de centros con:
+
+- Nombre
+- Dirección física
+- Tipo de materiales reciclables aceptados
+
+Usos posibles futuros:
+
+- Integración con Google Maps
+- Filtros por tipo de material
+- Carga desde API municipal
+
+#### b) ConsejosFragment
+#### Objetivo:
+Mostrar consejos prácticos para promover hábitos sostenibles desde casa o el trabajo.
+
+#### Contenido incluido:
+- Ahorro de agua
+- Clasificación de residuos
+- Reducción de plásticos
+- Consejos diarios simples
+
+#### Importancia:
+Facilita el aprendizaje ecológico de manera accesible.
+
+#### Potenciales evoluciones futuras:
+- Consejos dinámicos por día
+- Gamificación
+- Compartir en redes sociales
+
+#### 8.3 Integración con MainActivity
+Las nuevas secciones requieren compatibilidad con el Navigation Component y la Toolbar.
+
+Se actualizaron los siguientes puntos:
+
+#### a) Toolbar como ActionBar
+Esto permite usar:
+
+- Títulos dinámicos provenientes de nav_graph.xml
+- Icono de regreso automático
+
+#### b) Soporte para navigateUp()
+Se sobrescribe el método:
+
+- onSupportNavigateUp()
+
+para permitir que la flecha de regresar siempre:
+
+- Respete el stack del NavController
+- Evite cierres inesperados
+- Regrese al Home cuando es necesario
+
+#### 8.4 Contenido Inicial
+Para ambas pantallas se creó contenido estático para permitir pruebas y validación del flujo.
+
+#### Consejos incluidos (ejemplo)
+- Reduce el uso de plásticos desechables.
+- Clasifica los residuos en tu hogar.
+- Reutiliza envases antes de desecharlos.
+- Apaga luces innecesarias.
+- Reduce el consumo de agua.
+
+Estos elementos serán cargados mediante una lista básica.
+
+#### Centros incluidos (ejemplo)
+- Centro EcoVida – Recibe plástico, vidrio, cartón.
+- Recicla Perú – Recibe papel, metales, electrónicos.
+- Punto Verde Municipal – Recibe vidrio y baterías.
+- EcoRecicla – Recibe botellas plásticas.
+
+También en formato de lista básica.
+
+## 9. Conclusiones
+El proyecto EcoCiudad ha sido ampliado exitosamente con nuevas funcionalidades orientadas a educación ecológica y localización de recursos de reciclaje. Las modificaciones realizadas mantienen una arquitectura escalable y flexible, lo cual permite que en futuras iteraciones se integren bases de datos, geolocalización, y contenido dinámico sin romper la estructura actual.
+
+Las nuevas pantallas agregan valor social al proyecto y convierten la aplicación en una herramienta útil para la ciudadanía.
